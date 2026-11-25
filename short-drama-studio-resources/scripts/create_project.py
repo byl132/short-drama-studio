@@ -23,6 +23,9 @@ ROOT_FILES = {
     "episodes/episode-01-script.md": "# 第 01 集：脚本与拍摄分镜\n\n请参照 ../../templates/episode-script-and-storyboard.md。\n\n- 成片总时长：\n\n## 节拍表\n\n时间码：\n\n## 场景脚本\n\n台词：\n声音：\n\n## 拍摄分镜\n\n镜头：\n拍摄备注：\n",
     "video/video-production-spec.md": "# AI 视频生成与后期交付规格\n\n请参照 ../../templates/video-production-spec.md，先锁定平台、画幅、分辨率、帧率、音频、字幕和母版，再记录模型选择、镜头衔接与导出版本。\n\n- 输出画幅/分辨率：\n- 时间线帧率：\n- 模型选择：主模型 / 备份模型 / 快速预览模型\n- 2D/3D/AI 输入资产：\n- 镜头衔接：\n- 音效/对白/音乐：\n- 字幕：\n- 导出：母版 / 平台版\n",
     "shots/shot-list.md": "# 分镜表\n\n请参照 ../../templates/shot-list.md。\n",
+    "rights/continuity-ledger.csv": "asset_id,scene_id,shot_id,state_id,prop_id,variant_of,screen_direction,light_direction,costume_state,prop_state,continuity_time,notes,updated_at\n",
+    "rights/generation-jobs.csv": "job_id,request_fingerprint,idempotency_key,block_id,model,model_version,mode,input_refs,prompt_version,params,status,attempt,cost_estimate,output_file,parent_job,accepted_tail,created_at,updated_at,notes\n",
+    "planning/candidate-scorecard.csv": "candidate_id,block_id,model,seed,cost,story,identity,space,physics,performance,audio,editability,must_hit_pass,blind_rank,decision,reason\n",
 }
 
 

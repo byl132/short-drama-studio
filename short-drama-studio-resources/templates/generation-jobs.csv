@@ -1,0 +1,2 @@
+job_id,request_fingerprint,idempotency_key,block_id,model,model_version,mode,input_refs,prompt_version,params,status,attempt,cost_estimate,output_file,parent_job,accepted_tail,created_at,updated_at,notes
+JOB-001-v01,fp-xxxx,idem-xxxx,BLOCK-001-v01,CARD-T2V,,I2V,SUBJECT-001-v01+SCENE-001-v01,PROMPT-001-v01,720p/24fps/5s,queued,1,,BLOCK-001-v01.mp4,,,YYYY-MM-DD,YYYY-MM-DD,示例行，可按项目删除

@@ -1,0 +1,1 @@
+job_id,request_fingerprint,idempotency_key,block_id,model,model_version,mode,input_refs,prompt_version,params,status,attempt,cost_estimate,output_file,parent_job,accepted_tail,created_at,updated_at,notes

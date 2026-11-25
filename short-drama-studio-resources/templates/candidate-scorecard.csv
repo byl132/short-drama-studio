@@ -1,0 +1,3 @@
+candidate_id,block_id,model,seed,cost,story,identity,space,physics,performance,audio,editability,must_hit_pass,blind_rank,decision,reason
+CAND-001-v01,BLOCK-001-v01,,,,4,4,3,3,3,3,4,true,,accepted,口型与方向通过
+CAND-002-v01,BLOCK-001-v01,,,,3,4,3,2,3,2,3,false,,rejected,右手穿透桌面

@@ -31,9 +31,8 @@ description: 将一句话创意、剧本或分镜整理为可执行的 AI 短剧
 先把用户话语拆成四类：**事实**（用户明确给出的内容）、**偏好**（可替换的审美或平台偏好）、**假设**（为继续工作而暂定的内容）、**未决问题**（会改变人物身份、版权、时长、画幅、模型或成片用途的内容）。已有剧本时同时标记 `SCRIPT FACT / INFERENCE / DESIGN / OPEN QUESTION`。未决问题先反问；只影响措辞且风险低的问题可以给出带编号的假设并让用户一次确认。没有实际检索或生成时，标注“待检索/待生成”，不伪造来源、模型结果或图片。
 
 需要在线补充资料时，优先查官方文档、标准、出版机构/作者页面、模型当前帮助页和公开可靠的教学材料；提示词案例只提炼结构、变量和评价方法，必须用自己的话重写，记录标题、作者/机构、URL、访问日期、提炼内容、改写内容和许可风险。不得整段复制付费、盗版、来源不明的提示词或书籍内容，也不得把搜索结果当成事实而不核验。资料等级、引用格式和停止条件见 [knowledge-base/sources-and-method-boundaries.md](short-drama-studio-resources/knowledge-base/sources-and-method-boundaries.md)。
-需要在线补充资料时，优先查官方文档、标准、出版机构/作者页面、模型当前帮助页和公开可靠的教学材料；提示词案例只提炼结构、变量和评价方法，必须用自己的话重写，记录标题、作者/机构、URL、访问日期、提炼内容、改写内容和许可风险。不得整段复制付费、盗版、来源不明的提示词或书籍内容，也不得把搜索结果当成事实而不核验。资料等级、引用格式和停止条件见 [knowledge-base/sources-and-method-boundaries.md](short-drama-studio-resources/knowledge-base/sources-and-method-boundaries.md)。
 
-### 剧本分流与写作模式
+### 0.1 剧本分流与写作模式
 
 当任务涉及创作或修改剧本时，先读取 [knowledge-base/story-structure-and-screenwriting.md](short-drama-studio-resources/knowledge-base/story-structure-and-screenwriting.md)：
 
@@ -44,11 +43,11 @@ description: 将一句话创意、剧本或分镜整理为可执行的 AI 短剧
 
 剧本进入视觉生产前，必须补齐 `Want / Need / 阻力 / 失败代价 / 关键选择 / 可见变化`，并用三幕式、15 Beats 或 Story Circle 中合适的工具做结构诊断。
 
-### 资产设计顺序
+### 0.2 资产设计顺序
 
 先锁定风格的固定项、可变项、禁止项（可用 [templates/style-lock.md](short-drama-studio-resources/templates/style-lock.md)）；再建立主体；然后建立母场景和场景变体（可用 [templates/scene-card.md](short-drama-studio-resources/templates/scene-card.md)）；随后制作道具或产品（可用 [templates/prop-card.md](short-drama-studio-resources/templates/prop-card.md)）；最后把这些资产引用进镜头。已有完整剧本时，先完成剧本拆解和资产总表，才进入这条资产顺序。
 
-### 风格锁定要求
+### 0.3 风格锁定要求
 
 风格模块可以输出 `DESIGN-A/B/C` 三种方向，用户确认方向后才建立 `MODEL-A/B/C` 模型候选。风格固定项至少包括画面类别、材质、主辅色关系、光线逻辑、镜头语言和画面质感；天气、单镜头景别、构图和局部光强属于可变项。最终风格提示词只写视觉语言，不写具体人物、地点、道具或剧情动作；参考电影、摄影或艺术作品时，转写成色温、对比度、颗粒、焦段、构图、材质、光线和景深等可观察属性。详细模式、测试和交接见 [knowledge-base/style-system.md](short-drama-studio-resources/knowledge-base/style-system.md)。
 
@@ -157,6 +156,8 @@ description: 将一句话创意、剧本或分镜整理为可执行的 AI 短剧
 
 ### 9. AI 视频生成与后期剪辑
 
+动手生成前，先按 [knowledge-base/model-capability-cards.md](short-drama-studio-resources/knowledge-base/model-capability-cards.md) 选择主/备/预览模型，按 [knowledge-base/audio-and-voice.md](short-drama-studio-resources/knowledge-base/audio-and-voice.md) 声明声音路线，按 [knowledge-base/physics-and-continuity-gate.md](short-drama-studio-resources/knowledge-base/physics-and-continuity-gate.md) 过物理与连续性门，按 [knowledge-base/generation-operations.md](short-drama-studio-resources/knowledge-base/generation-operations.md) 执行门禁式生成、幂等恢复与费用授权分档。
+
 按照 [knowledge-base/video-generation-and-post.md](short-drama-studio-resources/knowledge-base/video-generation-and-post.md) 和 [templates/video-production-spec.md](short-drama-studio-resources/templates/video-production-spec.md) 执行。先锁定目标平台和母版规格，再选择“主模型 + 备份模型 + 快速预览模型”。每个 AI 视频镜头只承担一个主要动作或情绪变化，记录参考资产、模型版本、时长、帧率、提示词和 QC，不直接生成整集。
 
 后期顺序固定为：备份素材 → 粗剪 → 精剪/镜头衔接 → 对白/环境声/拟音/音乐 → 2D/3D/AI 合成与调色 → 字幕 → 母版导出 → 平台版本 → 全片 QC。默认硬切，动作切、视线切、匹配剪辑和声音桥必须有动机；不要用炫技转场遮盖 AI 穿帮。同步输出干净版、烧录字幕版和 SRT/VTT（按项目需要），保留归档母版和音频分轨。
@@ -185,11 +186,13 @@ description: 将一句话创意、剧本或分镜整理为可执行的 AI 短剧
 在目标目录执行：
 
 ```bash
+python short-drama-studio-resources/scripts/doctor.py
 python short-drama-studio-resources/scripts/create_project.py my-drama
 python short-drama-studio-resources/scripts/validate_project.py my-drama
+python short-drama-studio-resources/scripts/validate_project.py my-drama --strict --json
 ```
 
-`create_project.py` 创建剧本拆解表、资产总表、角色、场景、提示词和授权日志模板，不会覆盖已有文件；`validate_project.py` 检查必备目录、ID/变体/来源字段、资产表、计划表、模型候选数量、三视图/表情图/场景入镜图记录和授权日志。脚本只使用 Python 标准库，详细用法见 [scripts/README.md](short-drama-studio-resources/scripts/README.md)。
+`doctor.py` 检查 Skill 目录、知识库/模板齐全度、脚本语法与编码；`create_project.py` 创建剧本拆解表、资产总表、角色、场景、提示词和授权日志模板，不会覆盖已有文件；`validate_project.py` 使用软门禁：确定性结构问题记 `ERROR`，启发式内容缺失记 `WARNING`，并校验资产 ID 引用与镜头时长合计，`--strict` 让 `WARNING` 也失败。脚本只使用 Python 标准库，详细用法见 [scripts/README.md](short-drama-studio-resources/scripts/README.md)。
 
 ## 最终门槛
 
@@ -218,6 +221,10 @@ python short-drama-studio-resources/scripts/validate_project.py my-drama
 - [ ] 在线资料已记录来源和访问日期，内容经过核验与原创改写，没有整段复用受版权保护的提示词或书籍文本。
 - [ ] 存在明显版权、肖像、隐私或冒充风险的内容已停止、替换或取得明确许可。
 - [ ] 剧本变更已执行影响检查和 SCRIPT DIFF，旧版本保留，受影响资产重新 QC。
+- [ ] 已按能力卡选定主/备/预览模型，并记录证据等级与核实日期。
+- [ ] 声音路线已声明；无错人开口、串声或非说话者同步嘴型。
+- [ ] 高风险物理事件有接触点、方向与终态；连续性账本已更新。
+- [ ] 生成请求有指纹与幂等键；超时任务按 `unknown` 找回，未盲目重提。
 
 ## 参考资料
 
@@ -229,6 +236,16 @@ python short-drama-studio-resources/scripts/validate_project.py my-drama
 - 角色一致性、表情图与换脸：[knowledge-base/character-consistency.md](short-drama-studio-resources/knowledge-base/character-consistency.md)
 - 提示词结构与转换：[knowledge-base/prompt-engineering.md](short-drama-studio-resources/knowledge-base/prompt-engineering.md)
 - 三模型路由与评估：[knowledge-base/model-routing.md](short-drama-studio-resources/knowledge-base/model-routing.md)
+- 模型能力卡与五镜测试：[knowledge-base/model-capability-cards.md](short-drama-studio-resources/knowledge-base/model-capability-cards.md)
+- 对白路线与声线锚点：[knowledge-base/audio-and-voice.md](short-drama-studio-resources/knowledge-base/audio-and-voice.md)
+- 物理门与连续性账本：[knowledge-base/physics-and-continuity-gate.md](short-drama-studio-resources/knowledge-base/physics-and-continuity-gate.md)
+- 生成运营与证据边界：[knowledge-base/generation-operations.md](short-drama-studio-resources/knowledge-base/generation-operations.md)
+- 场景站位与开场调度：[knowledge-base/staging-and-blocking.md](short-drama-studio-resources/knowledge-base/staging-and-blocking.md)
+- 系列记忆与长篇改编：[knowledge-base/series-memory.md](short-drama-studio-resources/knowledge-base/series-memory.md)
+- 连续性账本模板：[templates/continuity-ledger.csv](short-drama-studio-resources/templates/continuity-ledger.csv)
+- 生成任务台账模板：[templates/generation-jobs.csv](short-drama-studio-resources/templates/generation-jobs.csv)
+- 候选评分模板：[templates/candidate-scorecard.csv](short-drama-studio-resources/templates/candidate-scorecard.csv)
+- 场景站位模板：[templates/staging.md](short-drama-studio-resources/templates/staging.md)
 - 版权、肖像和隐私：[knowledge-base/copyright-and-rights.md](short-drama-studio-resources/knowledge-base/copyright-and-rights.md)
 - 资料来源与方法边界：[knowledge-base/sources-and-method-boundaries.md](short-drama-studio-resources/knowledge-base/sources-and-method-boundaries.md)
 - AI 生产计划表：[templates/ai-production-plan.md](short-drama-studio-resources/templates/ai-production-plan.md)

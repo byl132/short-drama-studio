@@ -62,3 +62,26 @@ English: Hyper-realistic full-body CG character concept of a 21-year-old Chinese
 ## 七、完成判定
 
 主角概念表可以进入下一阶段，当且仅当：每个主要角色有唯一 ID；中文关键词和英文提示词逐项对应；至少绑定头像/全身参考图，或明确记录缺失；至少写出 3 个脸部锚点；授权状态可追溯；没有把不明版权元素当作原创资产。
+
+## 八、连戏锁与锁定词
+
+连戏锁把「跨镜不变的东西」变成一个可引用的 ID 和一句可原样贴入提示词的锁定词，避免每个镜头重新描述服装与道具时发生漂移。
+
+```yaml
+lock_id: LOCK-SUBJECT-001-COAT
+target: SUBJECT-001-v01
+item: 主服装
+locked_phrase: worn dark-brown waterproof trench coat
+applies_to: [SHOT-001-v01, SHOT-002-v01, SHOT-006-v01]
+allowed_change: [雨水湿度, 自然褶皱]
+forbidden_change: [主色, 领型, 长度, 口袋位置]
+image_prompt_item: IMG-SUBJECT-001-SHEET
+status: 待确认 / 已锁定
+```
+
+规则：
+
+- 锁定词用可观察的英文/目标模型短语，不用「帅气风衣」这类不可复核描述；
+- 同一资产在剧本、视觉设定、分镜、视频提示词四份文档引用同一个 `lock_id`；
+- 锁定项变化视为新变体，建立 `variant_of` 并让受影响镜头重新 QC；
+- 锁定词可原样复用到首帧提示词与视频提示词，不在每个镜头改写同义句。
