@@ -149,14 +149,19 @@ def check_encoding(doctor: Doctor, root: Path) -> None:
 
 
 def check_artifacts(doctor: Doctor, root: Path) -> None:
-    repo = root.parent
+    def locate(name: str) -> Path | None:
+        for candidate in (root / name, root.parent / name):
+            if candidate.exists():
+                return candidate
+        return None
+
     for name in ("LICENSE", "CHANGELOG.md"):
-        if (repo / name).is_file():
-            doctor.ok(f"仓库文件 {name} 存在")
+        if locate(name) is not None:
+            doctor.ok(f"{name} 存在")
         else:
-            doctor.warn(f"仓库缺 {name}")
-    examples = repo / "examples"
-    if examples.is_dir() and any(examples.iterdir()):
+            doctor.warn(f"缺 {name}")
+    examples = locate("examples")
+    if examples is not None and examples.is_dir() and any(examples.iterdir()):
         doctor.ok("examples/ 存在")
     else:
         doctor.warn("examples/ 为空")
